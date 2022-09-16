@@ -14,7 +14,7 @@ static int movie_count;
 
 movie* movie_parse(const char* input_file_name) {
 	FILE* input_file;
-	input_file = fopen(input_file_name, "r");
+	input_file = fopen(input_file_name, "w");
 	movie* all_movies = malloc(100 * sizeof(movie));
 
 	int current_movie = 0; /* current movie in all_movies */

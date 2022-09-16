@@ -10,6 +10,8 @@
 
 /* MOVIE_PARSER */
 
+static int movie_count;
+
 movie* movie_parse(const char* input_file_name) {
 	FILE* input_file;
 	input_file = fopen(input_file_name, "r");
@@ -80,7 +82,22 @@ movie* movie_parse(const char* input_file_name) {
 		}
 	}
 
+	movie_count = current_movie++;
+
 	return all_movies;
 }
 
-
+void movies_to_json(movie* all_movies, int length) {
+	int i = 0;
+	FILE* json = fopen("moviedata.json", "w");
+	for(i = 0; i < length; i++) {
+		fprintf(json, "{\n");
+		fprintf(json, "\t\"title\": \"%s\",\n", all_movies[i].title);
+		fprintf(json, "\t\"actors\": [\"%s\", \"%s\", \"%s\"],\n",  \
+						all_movies[i].actor[0], all_movies[i].actor[1], all_movies[i].actor[2]);
+		fprintf(json, "\t\"director\": %s,\n", all_movies[i].director);
+		fprintf(json, "\t\"year\": %d,\n", all_movies[i].year);
+		fprintf(json, "\t\"genre\": %s\n", all_movies[i].genre);
+		fprintf(json, "}\n");
+	}
+}

@@ -1,5 +1,7 @@
 #include "parse.h"
 
+static int movie_count;
+
 int main() {
-	printf("this parser works!\n");
+	movies_to_json(movie_parse("example"), movie_count);
 }

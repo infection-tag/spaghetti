@@ -50,3 +50,16 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# VIM files
+*.swp
+
+# Executable
+a.out
+
+# JSON File (created during live servers)
+*.json
+
+# Example
+example
+*/example

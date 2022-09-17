@@ -14,8 +14,11 @@ static int movie_count;
 
 movie* movie_parse(const char* input_file_name) {
 	FILE* input_file;
-	input_file = fopen(input_file_name, "w");
+	input_file = fopen(input_file_name, "r+");
+	printf("Successful open\n");
 	movie* all_movies = malloc(100 * sizeof(movie));
+
+	printf("Successful malloc\n");
 
 	int current_movie = 0; /* current movie in all_movies */
 
@@ -25,6 +28,8 @@ movie* movie_parse(const char* input_file_name) {
 
 	char c;
 	int state = GETTING_TITLE;
+
+	printf("Successful definitions\n");
 
 	for(; c != EOF; c = fgetc(input_file)) {
 		switch(state) {

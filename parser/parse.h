@@ -24,7 +24,7 @@ typedef char* spg_genre;
 typedef char* spg_tag;
 typedef int spg_year;
 
-typedef struct _movie {
+typedef struct _spg_movie {
 	char* title;
 	spg_actor* actor;
 	spg_genre genre;

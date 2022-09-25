@@ -32,6 +32,7 @@ movie* movie_parse(const char* input_file_name) {
 	printf("Successful definitions\n");
 
 	for(; c != EOF; c = fgetc(input_file)) {
+		printf("fget success!\n");
 		switch(state) {
 			case GETTING_TITLE:
 				if(c == ':') {
